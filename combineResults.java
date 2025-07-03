@@ -150,14 +150,15 @@
 /* 152 */       for (i = 0; i < listOfResultFiles.length; i++) {
 /* 154 */         String resultFilePath = listOfResultFiles[i].getAbsolutePath();
 /* 156 */         if (listOfResultFiles[i].isFile() && resultFilePath.endsWith(this.resultFileSuffixPellets)) {
-                    System.out.println("---- Processing Pellet File: " + resultFilePath);
+                    IJ.log("---- Processing Clump File: " + resultFilePath);
 
-                    ResultsTable resultTablePellets = ResultsTable.getResultsTable();
-                    int nResults = resultTablePellets.size();
-                    System.out.println("Number of rows in ResultsTable: " + nResults);
+                    ResultsTable resultTable = ResultsTable.getResultsTable();
+                    int nResults = resultTable.size();
+                    IJ.log("Number of rows in ResultsTable: " + nResults);
 
-                    String[] headings = resultTablePellets.getHeadings();
-                    System.out.println("Columns in ResultsTable: " + java.util.Arrays.toString(headings));
+                    String[] headings = resultTable.getHeadings();
+                    IJ.log("Columns in ResultsTable: " + java.util.Arrays.toString(headings));
+
 
 /* 158 */           counterPelletCvs++;
 /* 160 */           IJ.open(resultFilePath);
@@ -178,7 +179,7 @@
 /*     */           } 
 /* 182 */           int bigArrayPellets = this.areaPellets.size();
 /* 183 */           this.biggestArrayPellets.add(Integer.valueOf(bigArrayPellets));
-                    System.out.println("bigArrayPellets added: " + bigArrayPellets);
+                    IJ.log("bigArrayPellets added: " + bigArrayPellets);
 
 /* 185 */           this.totAreaPellets.add(Double.toString(totalAreaPellets));
 /* 187 */           this.allAreaPellets.add(this.areaPellets);
